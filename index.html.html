@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cedrick Mupenzi | Portfolio</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" type="image/png" href="favicon.png">
+
+
+<!-- ===== STYLES ===== -->
+<style>
+/* ===== GLOBAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --primary: #00bcd4;
+  --bg: #ffffff;
+  --text: #111;
+  --card: #f3f3f3;
+}
+body.dark {
+  --bg: #0d0d0d;
+  --text: #f0f0f0;
+  --card: #1a1a1a;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+header h1 { color: var(--primary); font-size: 1.5em; }
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: 500;
+}
+nav a.active, nav a:hover { color: var(--primary); }
+.toggle-btn {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+section {
+  padding: 100px 10%;
+  min-height: 100vh;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#home img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+#home h2 { font-size: 2.2em; margin-bottom: 10px; }
+#typed-text {
+  font-weight: 500;
+  color: gray;
+  min-height: 24px;
+}
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background: var(--primary);
+  animation: blink 0.8s infinite;
+  vertical-align: middle;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.btn {
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+}
+h2.section-title {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.skill {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.project-card:hover { transform: translateY(-5px); }
+footer {
+  background: var(--card);
+  text-align: center;
+  padding: 20px;
+}
+.socials a {
+  color: var(--primary);
+  margin: 0 10px;
+  text-decoration: none;
+}
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+}
+@media (max-width: 768px) {
+  header { flex-direction: column; gap: 10px; padding: 10px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <h1>Cedrick Mupenzi</h1>
+  <nav>
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="toggle-btn" id="themeToggle">dark</button>
+</header>
+
+<!-- ===== HOME ===== -->
+<section id="home">
+  <img src="YOUR-IMAGE.jpg" alt="Your Photo">
+  <h2>Hello, I'm Cedrick Mupenzi</h2>
+  <p id="typed-text"></p><span class="cursor"></span>
+  <a href="#projects" class="btn">View My Work</a>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <p>I'm a creative and results-driven developer passionate about building engaging and efficient web experiences. Skilled in front-end and back-end development, I enjoy turning complex problems into simple, elegant solutions.</p>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-list">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">PHP</div>
+    <div class="skill">MySQL</div>
+    <div class="skill">Bootstrap</div>
+    <div class="skill">Git</div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>Modern responsive personal portfolio with dark/light mode and animations.</p>
+    </div>
+    <div class="project-card">
+      <h3>PHP CRUD App</h3>
+      <p>Simple web app to manage users and data using PHP and MySQL.</p>
+    </div>
+    <div class="project-card">
+      <h3>JavaScript Game</h3>
+      <p>Fun interactive browser game built with pure JS.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESUME ===== -->
+<section id="resume">
+  <h2 class="section-title">Resume</h2>
+  <p><strong>Education:</strong> BSc in Computer Science – University of Rwanda</p>
+  <p><strong>Experience:</strong> Freelance Developer | Intern at XYZ Tech</p>
+  <a href="#" class="btn">Download CV</a>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <p>Have a project in mind or just want to say hi? Let’s connect!</p>
+ <form>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="subject">subject:</label>
+    <input type="text" id="subject" name="subject" required>
+  </div>
+  <div class="form-group">
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+  </div>
+  <button type="submit" onclick="sendMail()">Send Message</button>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="socials">
+    <a href="https://www.facebook.com/MUPENZI Cedrick" target="_blank">Facebook</a>
+    <a href="https://www.github.com/YourOrgName" target="_blank">GitHub</a>
+    <a href="mailto:mupenzicedrick587@gmail.com">✉️ Email</a>
+    
+  </div>
+  <p>© 2025 Cedrick Mupenzi. All Rights Reserved.</p>
+</footer>
+
+<!-- ===== JS ===== -->
+<script>
+// ===== DARK/LIGHT MODE =====
+const toggle = document.getElementById('themeToggle');
+toggle.addEventListener('click', ()=>{
+  document.body.classList.toggle('dark');
+  toggle.textContent = document.body.classList.contains('dark') ? 'Light' : 'Dark';
+});
+
+// ===== ACTIVE NAV HIGHLIGHT =====
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 100;
+    if (scrollY >= top) current = sec.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+});
+
+// ===== SCROLL FADE ANIMATION =====
+const revealSections = () => {
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < window.innerHeight - 100) section.classList.add('visible');
+  });
+};
+window.addEventListener('scroll', revealSections);
+revealSections();
+
+// ===== TYPING EFFECT =====
+const typedText = document.getElementById("typed-text");
+const words = ["Web Developer", "Designer", "Innovator","Creator"];
+let i = 0, j = 0, deleting = false;
+function type() {
+  const current = words[i];
+  if (!deleting) {
+    typedText.textContent = current.slice(0, ++j);
+    if (j === current.length) { deleting = true; setTimeout(type, 1200); return; }
+  } else {
+    typedText.textContent = current.slice(0, --j);
+    if (j === 0) { deleting = false; i = (i + 1) % words.length; }
+  }
+  setTimeout(type, deleting ? 60 : 120);
+}
+type();
+</script>
+</body>
+</html>
